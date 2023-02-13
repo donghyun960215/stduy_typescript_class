@@ -1,17 +1,16 @@
 class Person {
-  name: string = "dong";
-  age: number;
+  public constructor(public _name: string, public age: number){}
 
-  constructor(age?: number){
-    if(age == undefined){
-      this.age = 0;
-    }else{
-      this.age = age;
-    }
+  get name(){
+    return this._name
+  }
+
+  set name(n: string){
+    this._name = n;
   }
 }
 
-const p1 = new Person(38);
-const p2 = new Person();
+const p1 = new Person("dong",38);
 
-console.log(p1);
+console.log(p1.name); // get 을 하는 함수 getter
+p1.name = "lee";      // set 을 하는 함수 setter

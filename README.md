@@ -111,3 +111,80 @@ strict모드에서는 프로퍼티를 선언하는 곳 또는 생성자에서 �
 클래스의 프로퍼티가 정의되어 있지만, 값을 대입하지 않으면 undefined 이다.
 생성자는 async를 설정할 수 없다.
 ```
+
+## 접근제어자 (Access Modifiers)
+
+```ts
+class Person {
+  public name: string = "dong";
+  public age: number;
+
+  private constructor(age?: number){
+    if(age == undefined){
+      this.age = 0;
+    }else{
+      this.age = age;
+    }
+  }
+}
+
+const p1 = new Person(38);  //private 인한 오류
+const p2 = new Person();    //private 인한 오류
+
+console.log(p1);
+```
+```plaintext
+public 은 어디서든 접근이 가능한 접근제어자 이다
+하지만 private은 그 안에서만 가능하다
+private constructor을 보면 그 안에서만 접근이 가능하다
+그러므로 현재 new 생성시 오류가 발생한다
+```
+```plaintext
+접근제어자에는 public, private,protected가 있다.
+설정하지 않으면 public 이다.
+클래스 내부의 모든 곳에(생성자,프로퍼티,메서드)설정 가능하다.
+private으로 설정하면 클래스 외부에서 접근할 수 없다.
+자바스크립트에서 private 지원하지 않아 오랜동안 프로퍼티나 메서드 이름 앞에 _ 를 붙여서 표현했다.
+```
+
+
+## initialization in constructor parameters
+
+```ts
+class Person {
+  public constructor(public name: string, public age: number){
+  }
+}
+
+const p1 = new Person("dong",38);
+
+console.log(p1);
+```
+```plaintext
+생성자의 파마미터를 받아서 바로 그 생성자에 초기화하는 방법으로는
+생성자 안에 접근제어자를 사용하면 tis.을 사용 안해도 된다.
+```
+
+## Getters & Setters
+
+```ts
+class Person {
+  public constructor(public _name: string, public age: number){}
+
+  get name(){
+    return this._name
+  }
+
+  set name(n: string){
+    this._name = n;
+  }
+}
+
+const p1 = new Person("dong",38);
+
+console.log(p1.name); // get 을 하는 함수 getter
+p1.name = "lee";      // set 을 하는 함수 setter
+```
+```plaintext
+값을 가져오는 행위 getter, 겂울 세팅하는 행위 setter
+```
