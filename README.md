@@ -186,5 +186,5 @@ console.log(p1.name); // get 을 하는 함수 getter
 p1.name = "lee";      // set 을 하는 함수 setter
 ```
 ```plaintext
-값을 가져오는 행위 getter, 겂울 세팅하는 행위 setter
+값을 가져오는 행위 getter, 값을 세팅하는 행위 setter
 ```
