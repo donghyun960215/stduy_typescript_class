@@ -46,7 +46,7 @@ age!:number; 느낌표를 넣어주면 클래스에서 할당하는게 아니라
 ```
 
 ```ts
-//////////////1
+////////////////////////////1////////////////////////////
 class Person {
   name: string;
   age: number;
@@ -60,8 +60,9 @@ class Person {
 const p1 = new Person("dong",38);
 
 console.log(p1);
+////////////////////////////1////////////////////////////
 
-//////////////2
+////////////////////////////2////////////////////////////
 class Person {
   name: string = "dong";
   age: number;
@@ -74,8 +75,9 @@ class Person {
 const p1 = new Person(38);
 
 console.log(p1);
+////////////////////////////2////////////////////////////
 
-//////////////3
+////////////////////////////3////////////////////////////
 class Person {
   name: string = "dong";
   age: number;
@@ -93,6 +95,7 @@ const p1 = new Person(38);
 const p2 = new Person();
 
 console.log(p1);
+////////////////////////////3////////////////////////////
 ```
 ```plaintext
 1번과 같이 constructor에 전체 할당을 해줄 수도 있고
