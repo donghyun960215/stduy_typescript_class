@@ -188,3 +188,61 @@ p1.name = "lee";      // set 을 하는 함수 setter
 ```plaintext
 값을 가져오는 행위 getter, 값을 세팅하는 행위 setter
 ```
+
+## redonly properties
+
+```ts
+class Person {
+  public readonly name: string = "dong";
+  private readonly country : string ;
+
+  public constructor(public _name: string, public age: number){
+    this.country = "korea";
+
+  }
+
+  hello(){
+    this.country = "China"; //오류발생
+  }
+
+}
+
+const p1 = new Person("dong",38);
+
+console.log(p1.name); 
+p1.name = "lee";      //오류발생
+
+```
+```plaintext
+readonly 키워드가 달려있는 경우에는 public이든 private 초기화 되는 영역에서만 셋팅할 수 있고 다른 곳에서는 변경이 불가하다.
+값을 바꿔주려고 하면 에러를 발생시킨다.
+```
+
+## index Signatures in class
+```ts
+// class => object
+// {dong: "male", jade: "male"}
+// {chloe: "female"m alex: "male", anna: "female"}
+
+class Students {
+  // [index: string]: string;
+  [index: string]: "male" | "female"
+}
+
+const a = new Students();
+a.dong = "male";
+a.jade = "male";
+
+const b = new Students();
+b.chloe = "female";
+b.alex = "male";
+b.anna = "female";
+
+console.log(a);
+console.log(b);
+```
+```plaintext
+초기값을 할당을 할 수 없다. 값이 있을 수도 있고 없을 수도 있기 때문이다
+그래서 따로 최초값을 적을 필요가 없다.
+프로퍼티가 고정된 형태가 아니라 동적으로 바뀌는 경우 사용해야할 기능이다.
+```

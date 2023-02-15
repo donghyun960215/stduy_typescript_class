@@ -1,16 +1,20 @@
-class Person {
-  public constructor(public _name: string, public age: number){}
+// class => object
+// {dong: "male", jade: "male"}
+// {chloe: "female"m alex: "male", anna: "female"}
 
-  get name(){
-    return this._name
-  }
-
-  set name(n: string){
-    this._name = n;
-  }
+class Students {
+  // [index: string]: string;
+  [index: string]: "male" | "female"
 }
 
-const p1 = new Person("dong",38);
+const a = new Students();
+a.dong = "male";
+a.jade = "male";
 
-console.log(p1.name); // get 을 하는 함수 getter
-p1.name = "lee";      // set 을 하는 함수 setter
+const b = new Students();
+b.chloe = "female";
+b.alex = "male";
+b.anna = "female";
+
+console.log(a);
+console.log(b);
