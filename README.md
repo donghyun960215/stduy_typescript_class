@@ -434,3 +434,38 @@ c.print();
 ```plaintext
 constructor 에서 부모의 무언가를 호출하고 싶다면 위와 같이 사용
 ```
+
+## abstract class
+
+```ts
+abstract class AbstarctPerson {
+  protected _name: string = "dong";
+
+  abstract setName(name: string): void;
+}
+
+new AbstarctPerson()  //  오류발생
+```
+```plaintext
+abstract class 는 완전한 class가 아니기 때문에 new를 할 수 없다.
+```
+
+```ts
+abstract class AbstarctPerson {
+  protected _name: string = "dong";
+
+  abstract setName(name: string): void;
+}
+
+class Person extends  AbstarctPerson {
+  setName(name: string): void {
+    this._name = name;
+  }
+}
+
+const p = new Person();
+p.setName("lee");
+```
+```plaintext
+위 와 같이 상속을 통하여 다시 완벽하게 구현을 해주면 사용이 가능하다.
+```
