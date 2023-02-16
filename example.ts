@@ -1,20 +1,26 @@
-// class => object
-// {dong: "male", jade: "male"}
-// {chloe: "female"m alex: "male", anna: "female"}
+class Parent{
+  constructor(protected _name: string, private _age: number){}
 
-class Students {
-  // [index: string]: string;
-  [index: string]: "male" | "female"
+  public print(): void {
+    console.log(`이름은 ${this._name} 이고, 나이는 ${this._age} 입니다.`);
+  }
+
+  protected printName(): void{
+    console.log(this._name, this._age);
+  }
 }
 
-const a = new Students();
-a.dong = "male";
-a.jade = "male";
+class Child extends Parent {
+  public gender = "male";
+    
+  constructor(age: number){
+    super("hyun",age);  //super을 항상 먼저 써줘야한다.
+    this.printName();
+  }
+}
+const c = new Child(5);
+c.print(); 
+//reslt: hyun 5
+//      이름은 hyun 이고, 나이는 5 입니다. 
 
-const b = new Students();
-b.chloe = "female";
-b.alex = "male";
-b.anna = "female";
-
-console.log(a);
-console.log(b);
+//constructor 에서 부모의 무언가를 표현하고싶을 때 위와 같이 사용
