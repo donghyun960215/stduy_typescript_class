@@ -428,7 +428,7 @@ class Child extends Parent {
 }
 const c = new Child(5);
 c.print(); 
-//reslt: hyun 5
+//result: hyun 5
 //      이름은 hyun 이고, 나이는 5 입니다. 
 ```
 ```plaintext
